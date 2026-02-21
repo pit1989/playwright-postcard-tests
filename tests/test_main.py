@@ -209,6 +209,7 @@ def test_switch_chosen(browser):
     # Проверяем, что первая картинка больше не выбрана
     assert "chosen" not in third_img_container.get_attribute("class"), "Первая картинка должна была снять галочку"
 
+
 def test_empty_input_send_red(browser):
     """
     SMK-13. Проверяем появление всех красных надписей
