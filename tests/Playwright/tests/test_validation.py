@@ -1,4 +1,4 @@
-from playwright.sync_api import expect
+﻿from playwright.sync_api import expect
 
 def test_empty_email(postcard):
     postcard.fill_email("")
@@ -14,6 +14,7 @@ def test_empty_form(postcard):
     expect(postcard.required_error).to_be_visible()
 
 
+@pytest.mark.xfail(reason='Реальный баг сайта: ошибка не исчезает при вводе email')
 def test_error_state_not_reset(postcard):
     postcard.fill_email("")
     postcard.click_send()

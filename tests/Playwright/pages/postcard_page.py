@@ -22,7 +22,7 @@ class PostcardPage:
         
 
     def open(self):
-        self.page.goto("https://qa.studio")
+        self.page.goto("https://postcard.qa.studio/")
 
     def click_send(self):
         self.send_button.click()

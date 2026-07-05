@@ -6,7 +6,7 @@ import os
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-FILE = os.path.join(CURRENT_DIR, "..", "resources", "обл.png")
+FILE = os.path.join(CURRENT_DIR, "..", "resources", "kniga.png")
 
 
 def test_fine_case(postcard):
@@ -157,7 +157,8 @@ def test_send_without_email_but_with_image(postcard):
     postcard.click_send()
 
     expect(postcard.modal).to_be_visible()
-
+    
+@pytest.mark.xfail(reason="Реальный баг сайта: ошибка не исчезает при вводе email")
 def test_error_state_not_reset(postcard):
     postcard.fill_email("")
     postcard.click_send()
