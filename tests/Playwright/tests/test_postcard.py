@@ -6,7 +6,7 @@ import os
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-FILE = os.path.join(CURRENT_DIR, "resources", "обл.png")
+FILE = os.path.join(CURRENT_DIR, "..", "resources", "обл.png")
 
 
 def test_fine_case(postcard):
