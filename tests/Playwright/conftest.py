@@ -1,3 +1,4 @@
+import os
 import pytest
 from playwright.sync_api import sync_playwright
 from pages.postcard_page import PostcardPage
@@ -11,7 +12,11 @@ def playwright_instance():
 
 @pytest.fixture(scope="session")
 def browser(playwright_instance):
-    browser = playwright_instance.chromium.launch(headless=False)
+    # Проверяем, запущен ли тест в облаке GitHub Actions (там всегда переменная CI равна 'true')
+    is_ci = os.getenv("CI") == "true"
+    
+    # Если в CI — запускаем скрыто (headless=True), если у тебя на компе — с окном (headless=False)
+    browser = playwright_instance.chromium.launch(headless=is_ci)
     yield browser
     browser.close()
 
@@ -24,3 +29,4 @@ def postcard(browser):
     postcard.open()
     yield postcard
     context.close() # Контекст закроет и страницу автоматически
+
