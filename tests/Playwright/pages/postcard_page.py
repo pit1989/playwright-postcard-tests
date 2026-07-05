@@ -10,7 +10,7 @@ class PostcardPage:
         self.required_error = page.locator("div.photo-input__header > h2:nth-child(1)")
         self.upload_label = page.locator("div.photo-input__add label div")
         self.file_input = page.locator("input[type='file']")
-        self.preview_image = page.locator("#photoContainer img").last.last
+        self.preview_image = page.locator("#photoContainer img").last
         self.third_img_container = page.locator("#photoContainer > div").nth(1)
         self.second_img_container = page.locator("#photoContainer > div").nth(0)
         self.modal = page.locator("#modal")
@@ -46,3 +46,6 @@ class PostcardPage:
 
     def get_message_value(self):
         return self.message_input.input_value()
+    def get_message_value(self):
+        return self.message_input.input_value()
+'@ | Out-File -FilePath tests/Playwright/pages/postcard_page.py -Encoding utf8 -Force
