@@ -1,6 +1,6 @@
 import pytest
 import re
-from playwright.async_api import expect
+from playwright.sync_api import expect
 
 import os
 
