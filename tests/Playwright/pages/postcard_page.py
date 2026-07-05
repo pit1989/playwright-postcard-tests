@@ -20,7 +20,7 @@ class PostcardPage:
         
 
     def open(self):
-        self.page.goto("https://postcard.qa.studio/")  # <-- вставь свой URL
+        self.page.goto("https://postcard.qa.studio/", wait_until="commit")
 
     def click_send(self):
         self.send_button.click()
